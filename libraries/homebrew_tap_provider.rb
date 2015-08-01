@@ -27,11 +27,11 @@ class Chef
         end
 
         def action_tap()
-          brew('tap', new_resource.options, @current_resource.name)
+          brew('tap', @current_resource.name)
         end
 
         def action_untap()
-          brew('untap', new_resource.options, @current_resource.name)
+          brew('untap', @current_resource.name)
         end
 
         def brew(*args)

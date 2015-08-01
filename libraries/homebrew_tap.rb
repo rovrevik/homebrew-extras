@@ -17,8 +17,6 @@ class Chef
 
       provides :homebrew_tap
 
-      state_attrs :options
-
       def initialize(name, run_context=nil)
         super
         @action = :tap
@@ -40,17 +38,9 @@ class Chef
 
       def name(arg=nil)
         set_or_return(
-            :package_name,
+            :name,
             arg,
             :kind_of => [ String, Array ]
-        )
-      end
-
-      def options(arg=nil)
-        set_or_return(
-            :options,
-            arg,
-            :kind_of => [ String ]
         )
       end
 

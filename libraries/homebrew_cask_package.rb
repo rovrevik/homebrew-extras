@@ -23,6 +23,24 @@ class Chef
       def initialize(name, run_context=nil)
         super
         @resource_name = :homebrew_cask
+        @extend_sudo_timeout = true
+        @extend_sudo_timeout_cmd = 'sudo ls'
+      end
+
+      def extend_sudo_timeout(arg=nil)
+        set_or_return(
+            :extend_sudo_timeout,
+            arg,
+            :kind_of => [ TrueClass, FalseClass ]
+        )
+      end
+
+      def extend_sudo_timeout_cmd(arg=nil)
+        set_or_return(
+            :extend_sudo_timeout_cmd,
+            arg,
+            :kind_of => [ String ]
+        )
       end
 
     end
