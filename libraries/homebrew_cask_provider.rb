@@ -52,6 +52,7 @@ class Chef
         end
 
         def brew(*args)
+          get_response_from_command(new_resource.extend_sudo_timeout_cmd) if new_resource.extend_sudo_timeout
           get_response_from_command("brew cask #{args.join(' ')}")
         end
 
